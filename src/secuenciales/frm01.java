@@ -1,3 +1,5 @@
+package secuenciales;
+
 import java.awt.EventQueue;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
@@ -88,6 +90,7 @@ public class frm01 extends JFrame {
 		lblPMujeres.setText( df.format( pMujeres ) + " %" );
 		
 			
-	}
+			} 
+        } 
 
-		}
+        
