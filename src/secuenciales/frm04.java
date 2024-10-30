@@ -41,7 +41,7 @@ public class frm04 extends JFrame {
         getContentPane().add(lblPulgadas);
 
         JLabel lblMetros = new JLabel("Estatura en Metros :");
-        lblMetros.setBounds(50, 150, 120, 30);
+        lblMetros.setBounds(30, 150, 120, 30);
         getContentPane().add(lblMetros);
 
         txtPies = new JTextField();
