@@ -61,17 +61,12 @@ public class frm09 extends JFrame {
         try {
             int numero = Integer.parseInt(txtNumero.getText());
 
-            if (numero < 1000 || numero > 9999) {
-                txtSuma.setText("Inválido");
-                return;
-            }
+            int millares = numero / 1000;
+            int centenas = (numero % 1000) / 100;
+            int decenas = (numero % 100) / 10;
+            int unidades = numero % 10;
 
-            int suma = 0;
-            int tempNumero = numero;
-            while (tempNumero > 0) {
-                suma += tempNumero % 10;
-                tempNumero /= 10;
-            }
+            int suma = millares + centenas + decenas + unidades;
 
             txtSuma.setText(String.valueOf(suma));
         } catch (NumberFormatException e) {
