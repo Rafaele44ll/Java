@@ -1,24 +1,85 @@
 package secuenciales;
 
-import java.util.Scanner;
+import java.awt.EventQueue;
+import java.text.DecimalFormat;
 
-public class frm04 { public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
-        final double PIES_A_METROS = 0.3048;  
-        final double PULGADAS_A_METROS = 0.0254; 
+public class frm04 extends JFrame {
+    private static final long serialVersionUID = 1L;
+    JTextField txtPies, txtPulgadas, txtMetros;
 
-        System.out.print("Ingrese su estatura en pies: ");
-        int pies = scanner.nextInt();
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    frm04 frame = new frm04();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 
-        System.out.print("Ingrese su estatura en pulgadas: ");
-        int pulgadas = scanner.nextInt();
+    public frm04() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(0, 0, 300, 300);
+        setLayout(null);
+        setLocationRelativeTo(null);
 
-        double estaturaEnMetros = (pies * PIES_A_METROS) + (pulgadas * PULGADAS_A_METROS);
+        JLabel lblPies = new JLabel("Pies :");
+        lblPies.setBounds(50, 50, 80, 30);
+        getContentPane().add(lblPies);
 
-        System.out.printf("Su estatura en metros es: %.2f m\n", estaturaEnMetros);
+        JLabel lblPulgadas = new JLabel("Pulgadas :");
+        lblPulgadas.setBounds(50, 90, 80, 30);
+        getContentPane().add(lblPulgadas);
 
-        scanner.close();
+        JLabel lblMetros = new JLabel("Estatura en Metros :");
+        lblMetros.setBounds(50, 150, 120, 30);
+        getContentPane().add(lblMetros);
+
+        txtPies = new JTextField();
+        txtPies.setBounds(150, 50, 80, 30);
+        txtPies.setHorizontalAlignment(SwingConstants.RIGHT);
+        getContentPane().add(txtPies);
+
+        txtPulgadas = new JTextField();
+        txtPulgadas.setBounds(150, 90, 80, 30);
+        txtPulgadas.setHorizontalAlignment(SwingConstants.RIGHT);
+        getContentPane().add(txtPulgadas);
+
+        txtMetros = new JTextField();
+        txtMetros.setBounds(150, 150, 80, 30);
+        txtMetros.setFocusable(false);
+        txtMetros.setHorizontalAlignment(SwingConstants.RIGHT);
+        getContentPane().add(txtMetros);
+
+        JButton btnCalcular = new JButton("Calcular");
+        btnCalcular.setBounds(100, 120, 100, 30);
+        getContentPane().add(btnCalcular);
+
+        btnCalcular.addActionListener(e -> btnCalcular_actionPerformed());
+    }
+
+    protected void btnCalcular_actionPerformed() {
+        try {
+            int pies = Integer.parseInt(txtPies.getText());
+            int pulgadas = Integer.parseInt(txtPulgadas.getText());
+
+            double totalPulgadas = (pies * 12) + pulgadas; 
+            double metros = totalPulgadas * 0.0254; 
+
+            DecimalFormat df = new DecimalFormat("###.##");
+            txtMetros.setText(df.format(metros));
+        } catch (NumberFormatException e) {
+            txtMetros.setText("Error");
+        }
     }
 }
     
