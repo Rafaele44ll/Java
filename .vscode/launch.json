@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "frm01",
+            "request": "launch",
+            "mainClass": "condicionales.frm01",
+            "projectName": "Java_aa41d199"
+        },
+        {
+            "type": "java",
+            "name": "frm01",
+            "request": "launch",
+            "mainClass": "secuenciales.frm01",
+            "projectName": "Java_aa41d199"
+        },
+        {
+            "type": "java",
+            "name": "frm02",
+            "request": "launch",
+            "mainClass": "secuenciales.frm02",
+            "projectName": "Java_aa41d199"
+        },
+        {
+            "type": "java",
             "name": "frm10",
             "request": "launch",
             "mainClass": "secuenciales.frm10",
